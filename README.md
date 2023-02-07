@@ -12,4 +12,5 @@
 
 - i3 config
 - tmux config
+- zsh config
 - neovim config
