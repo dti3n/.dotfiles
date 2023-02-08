@@ -195,6 +195,8 @@ bar {
         position top
 }
 
+exec --no-startup-id i3-msg 'workspace 1; exec firefox; workspace 2; exec i3-sensible-terminal; workspace 1'
+
 exec --no-startup-id "startup"
 
 exec --no-startup-id nitrogen --restore
