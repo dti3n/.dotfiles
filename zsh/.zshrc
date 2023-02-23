@@ -99,29 +99,63 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# aliases
-alias vim='nvim'
-alias vi='nvim'
-alias ll='ls -al'
-alias sl='ls'
-
-alias dk="setxkbmap -option"
-alias ck="setxkbmap -option caps:ctrl_modifier"
-
-# search directories
-alias sd="cd \$(find ~ ~/personal/faround/ -mindepth 1 -maxdepth 1 -type d | fzf)"
-
-# search all working directories
-alias wd="tmux-sessionizer"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# aliases
+alias vim='nvim'
+alias l='ls'
+alias ll='ls -al'
+alias sl='ls'
+alias so="source ~/.zshrc"
+alias p="cd ~/personal"
+alias tn="tmux-new"
+
+alias dk="setxkbmap -option"
+alias ck="setxkbmap -option caps:ctrl_modifier"
+
+# search directories
+alias sd="cd \$(find ~ ~/personal/ ~/personal/react/ ~/personal/faround/ -mindepth 1 -maxdepth 1 -type d | fzf)"
+
+# search all working directories
+alias wd="tmux-sessionizer"
+
+# this is very nice
+bindkey -s ^f "tmux-sessionizer\n"
+
 # switching keyboard layout
 EN_ibus="xkb:us::eng"
 VN_ibus="Bamboo"
 alias ken='ibus engine $EN_ibus'
 alias kvi='ibus engine $VN_ibus'
+
+# useful functions
+function take() {
+    mkdir -p $1
+    cd $1
+}
+
+function note() {
+    if [ $# -eq 0 ]; then
+        echo "No arguments supplied"
+        echo "Usage"
+        echo "> list : view all notes"
+        echo "> edit : open notes.txt to edit"
+        echo "> write <message>: take note"
+        return
+    fi
+    if [ $1 = "list" ]; then
+        cat ~/personal/notes.txt
+    elif [ $1 = "edit" ]; then
+        vim ~/personal/notes.txt
+    elif [ $1 = "write" ]; then
+        echo "date : $(date)" >> $HOME/personal/notes.txt
+        echo "msg  : ${@:2}" >> $HOME/personal/notes.txt
+        echo "" >> $HOME/personal/notes.txt
+    else
+        echo "Argument is not correct"
+    fi
+}
