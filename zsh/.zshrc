@@ -105,6 +105,8 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+source $HOME/.zsh_profile
+
 # aliases
 alias vim='nvim'
 alias l='ls'
@@ -123,39 +125,8 @@ alias sd="cd \$(find ~ ~/personal/ ~/personal/react/ ~/personal/faround/ -mindep
 # search all working directories
 alias wd="tmux-sessionizer"
 
-# this is very nice
-bindkey -s ^f "tmux-sessionizer\n"
-
 # switching keyboard layout
 EN_ibus="xkb:us::eng"
 VN_ibus="Bamboo"
 alias ken='ibus engine $EN_ibus'
 alias kvi='ibus engine $VN_ibus'
-
-# useful functions
-function take() {
-    mkdir -p $1
-    cd $1
-}
-
-function note() {
-    if [ $# -eq 0 ]; then
-        echo "No arguments supplied"
-        echo "Usage"
-        echo "> list : view all notes"
-        echo "> edit : open notes.txt to edit"
-        echo "> write <message>: take note"
-        return
-    fi
-    if [ $1 = "list" ]; then
-        cat ~/personal/notes.txt
-    elif [ $1 = "edit" ]; then
-        vim ~/personal/notes.txt
-    elif [ $1 = "write" ]; then
-        echo "date : $(date)" >> $HOME/personal/notes.txt
-        echo "msg  : ${@:2}" >> $HOME/personal/notes.txt
-        echo "" >> $HOME/personal/notes.txt
-    else
-        echo "Argument is not correct"
-    fi
-}

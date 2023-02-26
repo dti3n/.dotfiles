@@ -1,0 +1,40 @@
+export XDG_CONFIG_HOME=$HOME/.config
+export NVIM_APPNAME=nvim-testing-config
+
+VIM="nvim"
+
+# this is very nice
+bindkey -s ^f "tmux-sessionizer\n"
+
+# functions
+take() {
+    mkdir -p $1
+    cd $1
+}
+
+note() {
+    if [ $# -eq 0 ]; then
+        echo "No arguments supplied"
+        echo "-- Usage -- "
+        echo "> list : view all notes"
+        echo "> edit : open notes.txt to edit"
+        echo "> write <message>: take note"
+        return
+    fi
+    if [ $1 = "list" ]; then
+        cat ~/personal/notes.txt
+    elif [ $1 = "edit" ]; then
+        vim ~/personal/notes.txt
+    elif [ $1 = "write" ]; then
+        echo "date : $(date)" >> $HOME/personal/notes.txt
+        echo "msg  : ${@:2}" >> $HOME/personal/notes.txt
+        echo "" >> $HOME/personal/notes.txt
+    else
+        echo "Argument is not correct"
+        echo "-- Usage -- "
+        echo "> list : view all notes"
+        echo "> edit : open notes.txt to edit"
+        echo "> write <message>: take note"
+    fi
+}
+
