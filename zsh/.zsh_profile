@@ -25,7 +25,7 @@ note() {
     if [ $1 = "list" ]; then
         cat ~/personal/notes.txt
     elif [ $1 = "edit" ]; then
-        vim ~/personal/notes.txt
+        nvim ~/personal/notes.txt
     elif [ $1 = "write" ]; then
         echo "date : $(date)" >> $HOME/personal/notes.txt
         echo "msg  : ${@:2}" >> $HOME/personal/notes.txt

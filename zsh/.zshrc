@@ -105,8 +105,6 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source $HOME/.zsh_profile
-
 # aliases
 alias vim='nvim'
 alias l='ls'
@@ -130,3 +128,6 @@ EN_ibus="xkb:us::eng"
 VN_ibus="Bamboo"
 alias ken='ibus engine $EN_ibus'
 alias kvi='ibus engine $VN_ibus'
+
+source $HOME/.zsh_profile
+
