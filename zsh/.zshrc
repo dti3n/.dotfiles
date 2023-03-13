@@ -113,12 +113,13 @@ alias sl='ls'
 alias so="source ~/.zshrc"
 alias p="cd ~/personal"
 alias tn="tmux-new"
+alias c="clear"
 
 alias dk="setxkbmap -option"
 alias ck="setxkbmap -option caps:ctrl_modifier"
 
 # search directories
-alias sd="cd \$(find ~ ~/personal/ ~/personal/react/ ~/personal/faround/ -mindepth 1 -maxdepth 1 -type d | fzf)"
+alias sd="cd \$(find ~ ~/study/ ~/personal/ ~/personal/react/ ~/personal/faround/ -mindepth 1 -maxdepth 1 -type d | fzf)"
 
 # search all working directories
 alias wd="tmux-sessionizer"

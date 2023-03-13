@@ -1,5 +1,5 @@
 export XDG_CONFIG_HOME=$HOME/.config
-export NVIM_APPNAME=nvim
+export NVIM_APPNAME=nvim # default
 export NVIM_CONFIG=$HOME/.config/$NVIM_APPNAME
 
 VIM="nvim"
@@ -27,8 +27,8 @@ note() {
     elif [ $1 = "edit" ]; then
         nvim ~/personal/notes.txt
     elif [ $1 = "write" ]; then
-        echo "date : $(date)" >> $HOME/personal/notes.txt
-        echo "msg  : ${@:2}" >> $HOME/personal/notes.txt
+        echo "date : $(date)" >> $HOME/personal/_notes.txt
+        echo "msg  : ${@:2}" >> $HOME/personal/_notes.txt
         echo "" >> $HOME/personal/notes.txt
     else
         echo "Argument is not correct"
