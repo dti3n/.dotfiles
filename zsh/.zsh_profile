@@ -29,7 +29,7 @@ note() {
     elif [ $1 = "write" ]; then
         echo "date : $(date)" >> $HOME/personal/_notes.txt
         echo "msg  : ${@:2}" >> $HOME/personal/_notes.txt
-        echo "" >> $HOME/personal/notes.txt
+        echo "" >> $HOME/personal/_notes.txt
     else
         echo "Argument is not correct"
         echo "-- Usage -- "
