@@ -107,11 +107,11 @@ export NVM_DIR="$HOME/.nvm"
 
 # aliases
 alias vim='nvim'
+alias vmi='nvim'
+alias ivm='nvim'
 alias l='ls'
-alias ll='ls -al'
 alias sl='ls'
 alias so="source ~/.zshrc"
-alias p="cd ~/personal"
 alias tn="tmux-new"
 alias c="clear"
 
