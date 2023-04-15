@@ -1,6 +1,4 @@
 export XDG_CONFIG_HOME=$HOME/.config
-export NVIM_APPNAME=nvim-testing-config
-export NVIM_CONFIG=$HOME/.config/$NVIM_APPNAME
 
 VIM="nvim"
 
