@@ -113,8 +113,8 @@ alias l='ls'
 alias sl='ls'
 alias so="source ~/.zshrc"
 alias tn="tmux-new"
-alias c="clear"
 
+# gnome desktop: gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
 alias dk="setxkbmap -option"
 alias ck="setxkbmap -option caps:ctrl_modifier"
 
