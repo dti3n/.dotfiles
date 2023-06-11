@@ -1,0 +1,59 @@
+""" Map leader to space ---------------------
+let mapleader=" "
+
+""" Common settings -------------------------
+set showmode
+set so=5
+set incsearch
+set nu
+set rnu
+
+""" Idea specific settings ------------------
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+""" Mappings --------------------------------
+nmap \r <Action>(ReformatCode)
+nmap \b <Action>(ToggleLineBreakpoint)
+
+nmap [d <Action>(GotoNextError)
+nmap ]d <Action>(GotoPreviousError)
+
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fw <Action>(FindInPath)
+
+nmap <leader>ca <Action>(ShowIntentionActions)
+nmap <leader>e <Action>(ShowErrorDescription)
+nmap <leader>i <Action>(Generate)
+nmap <leader>f <Action>(GotoFile)
+nmap <leader>g <Action>(FindInPath)
+nmap <leader>b <Action>(Switcher)
+
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+nnoremap gd :action GotoDeclaration<CR>
+
+vmap <leader>y "+y
+nmap <leader>Y "+Y
+
+xmap <leader>p "_dP
+nmap <leader>d "_d]
+vmap <leader>d "_d]
+
+nmap n nzzzv
+nmap N Nzzzv
+nmap <C-u> <C-u>zz
+nmap <C-d> <C-d>zz
+
+""" Extra ------------------------------------
+""" File > Settings > Keymaps > Editor Actions
+""" * Down > Add keyboard shortcut C-n
+""" * Up   > Add keyboard shortcut C-p
+
