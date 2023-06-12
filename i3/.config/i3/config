@@ -16,6 +16,10 @@ set $mod Mod1
 font pango:Roboto Mono Medium 12px
 
 for_window [class="^.*"] border pixel 1
+# for_window [class="kitty"] border pixel 0
+# for_window [title="^Android Emulator*"] floating enable
+# for_window [title="^Android Emulator.+:[0-9]+$"] floating enable
+
                           # class                 border  backgr. text    indicator child_border
 # for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
 
@@ -92,10 +96,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-# bindsym $mod+h split h
+bindsym $mod+z split h
 
 # split in vertical orientation
-# bindsym $mod+v split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -189,7 +193,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-        position top
+        position bottom
 }
 
 exec --no-startup-id i3-msg 'workspace 1; exec firefox; workspace 2; exec kitty; workspace 1'

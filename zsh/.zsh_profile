@@ -1,9 +1,15 @@
 export XDG_CONFIG_HOME=$HOME/.config
+export NVIM_APPNAME=nvim
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 VIM="nvim"
 
 # this is very nice
 bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^s "cd \$(find ~ ~/study/ ~/personal/ ~/personal/react/ ~/personal/faround/ -mindepth 1 -maxdepth 1 -type d | fzf)\n"
 
 # functions
 take() {
