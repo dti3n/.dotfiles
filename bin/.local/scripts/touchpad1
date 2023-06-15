@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Tapping Enabled" 1

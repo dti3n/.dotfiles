@@ -8,8 +8,8 @@ if [ $lang = $EN_ibus ];then
   ibus engine $VN_ibus
   notify-send "[VI] Tiếng Việt" -t 2000 -a "System"
 fi
-if [ $lang = $VN_ibus ];then
-  notify-send "[EN] English" -t 2000 -a "System"
-  ibus engine $EN_ibus
-fi
 
+if [ $lang = $VN_ibus ];then
+  ibus engine $EN_ibus
+  notify-send "[EN] English" -t 2000 -a "System"
+fi

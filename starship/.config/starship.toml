@@ -1,0 +1,59 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$git_metrics\
+$cmd_duration\
+$nodejs\
+$python\
+$golang\
+$line_break\
+$character"""
+
+add_newline = false
+
+[character]
+success_symbol = '[‣](bold green)'
+error_symbol = '[‣](bold red)'
+
+# [character]
+# success_symbol = '[➜](bold green)'
+# error_symbol = '[➜](bold red)'
+
+[directory]
+style = "#8082e5 bold"
+
+[package]
+disabled = true
+
+# [time]
+# disabled = true
+# format = '[\[$time\]]($style)'
+
+# [git_metrics]
+# disabled = false
+# style = ""
+
+# [git_branch]
+# symbol = ""
+
+# [fill]
+# symbol = ' '
+#
+# [ruby]
+# disabled = true
+#
+# [git_commit]
+# tag_symbol = " tag "
+#
+# [git_status]
+# ahead = "<ahead>"
+# behind = "<behind>"
+# diverged = "<diverged>"
+# renamed = "<renamed>"
+# deleted = "x"
+

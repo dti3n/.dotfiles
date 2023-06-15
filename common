@@ -1,0 +1,16 @@
+# Common
+
+fzf
+ripgrep
+jq
+xclip
+nitrogen
+cargo | rustup
+ab (apache bench)
+
+---
+
+cargo install just
+cargo install tokei
+cargo install stylua
+

@@ -1,45 +1,70 @@
 export XDG_CONFIG_HOME=$HOME/.config
 export NVIM_APPNAME=nvim
-
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
 VIM="nvim"
 
+export DOTFILES=$HOME/.dotfiles
+export PATH="$GEM_HOME/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+
+# export ANDROID_HOME=$HOME/Android/Sdk
+# export PATH=$PATH:$ANDROID_HOME/emulator
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export GIT_EDITOR=$VIM
+
 # this is very nice
-bindkey -s ^f "tmux-sessionizer\n"
-bindkey -s ^s "cd \$(find ~ ~/study/ ~/personal/ ~/personal/react/ ~/personal/faround/ -mindepth 1 -maxdepth 1 -type d | fzf)\n"
+bindkey -s '^f' "~/.local/bin/tmux-sessionizer\n"
+bindkey -s '^s' "cd \$(find ~ ~/work ~/work/* ~/personal/ ~/personal/testing/ -mindepth 1 -maxdepth 1 -type d | fzf)\n"
 
 # functions
-take() {
-    mkdir -p $1
-    cd $1
+
+catr() {
+    tail -n "+$1" $3 | head -n "$(($2 - $1 + 1))"
+}
+
+rcatr() {
+    tail -n "$1" $2 | tac
+}
+
+cat1Line() {
+    cat $1 | tr -d "\n"
+}
+
+draft() {
+    draft_file=$HOME/personal/_messages/draft.txt
+    echo "date: $(date)" >> $draft_file
+    echo "$@" >> $draft_file
+    echo "" >> $draft_file
 }
 
 note() {
-    if [ $# -eq 0 ]; then
-        echo "No arguments supplied"
-        echo "-- Usage -- "
-        echo "> list : view all notes"
-        echo "> edit : open notes.txt to edit"
-        echo "> write <message>: take note"
-        return
-    fi
-    if [ $1 = "list" ]; then
-        cat ~/personal/_notes.txt
-    elif [ $1 = "edit" ]; then
-        nvim ~/personal/_notes.txt
-    elif [ $1 = "write" ]; then
-        echo "date : $(date)" >> $HOME/personal/_notes.txt
-        echo "msg  : ${@:2}" >> $HOME/personal/_notes.txt
-        echo "" >> $HOME/personal/_notes.txt
+    note_file=$HOME/personal/_notes/note.txt
+    if [ $1 = "list" ] || [ $1 = "l" ] ; then
+        cat $note_file
+    elif [ $1 = "edit" ] || [ $1 = "e" ] || [ $1 = "open" ] || [ $1 = "o" ]; then
+        nvim $note_file
     else
-        echo "Argument is not correct"
-        echo "-- Usage -- "
-        echo "> list : view all notes"
-        echo "> edit : open notes.txt to edit"
-        echo "> write <message>: take note"
+        timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+        while [[ $# -gt 0 ]]; do
+            case "$1" in
+                -m|--message)
+                    shift
+                    message="$1"
+                    ;;
+                *)
+                    echo "Invalid argument: $1"
+                    ;;
+            esac
+            shift
+        done
+
+        if [ -z "$message" ]; then
+            echo "Please provide a message using -m or --message."
+        else
+            echo "[$timestamp] > $message" >> $note_file
+            echo "" >> $note_file
+            echo "Note added: $message"
+        fi
     fi
 }
 

@@ -1,4 +1,15 @@
 #!/usr/bin/env bash
 
-ibus engine xkb:us::eng >/dev/null 2>&1 &
-exec setxkbmap -option caps:ctrl_modifier
+ibus-daemon -d
+
+sleep 1
+
+EN_ibus="xkb:us::eng"
+ibus engine "$EN_ibus"
+
+setxkbmap -option caps:ctrl_modifier
+
+# for resolving problems with touchpad
+syndaemon -i 2 -d -t -k
+synclient HorizTwoFingerScroll=1
+

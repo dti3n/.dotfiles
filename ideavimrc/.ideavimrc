@@ -7,6 +7,7 @@ set so=5
 set incsearch
 set nu
 set rnu
+set NERDTree
 
 """ Idea specific settings ------------------
 set ideajoin
@@ -14,6 +15,8 @@ set ideastatusicon=gray
 set idearefactormode=keep
 
 """ Mappings --------------------------------
+nmap <leader>vn :NERDTree<CR>
+
 nmap \r <Action>(ReformatCode)
 nmap \b <Action>(ToggleLineBreakpoint)
 
@@ -36,8 +39,8 @@ nnoremap <leader>3 3gt
 nnoremap <leader>4 4gt
 nnoremap <leader>5 5gt
 
-vmap J :m '>+1<CR>gv=gv
-vmap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 nnoremap gd :action GotoDeclaration<CR>
 
 vmap <leader>y "+y
@@ -45,7 +48,6 @@ nmap <leader>Y "+Y
 
 xmap <leader>p "_dP
 nmap <leader>d "_d]
-vmap <leader>d "_d]
 
 nmap n nzzzv
 nmap N Nzzzv

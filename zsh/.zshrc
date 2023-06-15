@@ -69,7 +69,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,24 +109,21 @@ export NVM_DIR="$HOME/.nvm"
 alias vim='nvim'
 alias vmi='nvim'
 alias ivm='nvim'
-alias l='ls'
-alias sl='ls'
+alias v='nvim'
 alias so="source ~/.zshrc"
-alias tn="tmux-new"
 
 # gnome desktop: gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
 alias dk="setxkbmap -option"
+alias DK="setxkbmap -option"
 alias ck="setxkbmap -option caps:ctrl_modifier"
+alias CK="setxkbmap -option caps:ctrl_modifier"
 
-# neovim configs
-alias vimc="NVIM_APPNAME=nvim-clean-config nvim"   # clean config
-alias vimt="NVIM_APPNAME=nvim-testing-config nvim" # testing config
+# # neovim configs
+# alias vimc="NVIM_APPNAME=nvim-clean-config nvim"   # clean config
+# alias vimt="NVIM_APPNAME=nvim-testing-config nvim" # testing config
 
 # search directories
-alias sd="cd \$(find ~ ~/study/ ~/personal/ ~/personal/react/ ~/personal/faround/ -mindepth 1 -maxdepth 1 -type d | fzf)"
-
-# search all working directories
-alias wd="tmux-sessionizer"
+alias sd="cd \$(find ~ ~/work ~/work/* ~/personal/ ~/personal/testing/ -mindepth 1 -maxdepth 1 -type d | fzf)"
 
 # switching keyboard layout
 EN_ibus="xkb:us::eng"
@@ -136,3 +133,8 @@ alias kvi='ibus engine $VN_ibus'
 
 source $HOME/.zsh_profile
 
+# eval "$(starship init zsh)"
+
+. "/home/dtien/.deno/env"
+export PATH="/home/dtien/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/dtien/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"

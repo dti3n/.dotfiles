@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find ~/work/_notes ~/personal/_notes -type f | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_dir=$(dirname "$selected")
+selected_name=$(basename "$selected")
+
+if [[ -n $TMUX ]]; then
+    tmux neww -c "$selected_dir" "nvim \"$selected\""
+else
+    nvim "$selected"
+fi
+
