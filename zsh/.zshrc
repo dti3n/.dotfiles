@@ -105,11 +105,9 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# aliases
 alias vim='nvim'
 alias vmi='nvim'
 alias ivm='nvim'
-alias v='nvim'
 alias so="source ~/.zshrc"
 
 # gnome desktop: gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
@@ -118,23 +116,31 @@ alias DK="setxkbmap -option"
 alias ck="setxkbmap -option caps:ctrl_modifier"
 alias CK="setxkbmap -option caps:ctrl_modifier"
 
-# # neovim configs
-# alias vimc="NVIM_APPNAME=nvim-clean-config nvim"   # clean config
-# alias vimt="NVIM_APPNAME=nvim-testing-config nvim" # testing config
-
-# search directories
-alias sd="cd \$(find ~ ~/work ~/work/* ~/personal/ ~/personal/testing/ -mindepth 1 -maxdepth 1 -type d | fzf)"
-
 # switching keyboard layout
 EN_ibus="xkb:us::eng"
 VN_ibus="Bamboo"
 alias ken='ibus engine $EN_ibus'
 alias kvi='ibus engine $VN_ibus'
 
+# search directories
+alias sd="cd \$(find ~ ~/work ~/work/* ~/personal/ ~/personal/testing/ -mindepth 1 -maxdepth 1 -type d | fzf)"
+
+# list notes
+alias list-notes="~/.local/bin/list-notes"
+
+# neovim configs
+# alias vimc="NVIM_APPNAME=nvim-clean-config nvim"
+# alias vimt="NVIM_APPNAME=nvim-testing-config nvim"
+
 source $HOME/.zsh_profile
 
+# # . "/home/dtien/.deno/env"
 # eval "$(starship init zsh)"
 
-. "/home/dtien/.deno/env"
-export PATH="/home/dtien/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="/home/dtien/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

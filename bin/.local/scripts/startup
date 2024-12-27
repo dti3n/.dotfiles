@@ -9,7 +9,4 @@ ibus engine "$EN_ibus"
 
 setxkbmap -option caps:ctrl_modifier
 
-# for resolving problems with touchpad
-syndaemon -i 2 -d -t -k
-synclient HorizTwoFingerScroll=1
-
+xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Tapping Enabled" 1

@@ -14,21 +14,20 @@ $golang\
 $line_break\
 $character"""
 
-add_newline = false
+# add_newline = false
 
 [character]
 success_symbol = '[‣](bold green)'
 error_symbol = '[‣](bold red)'
 
-# [character]
-# success_symbol = '[➜](bold green)'
-# error_symbol = '[➜](bold red)'
-
-[directory]
-style = "#8082e5 bold"
-
 [package]
 disabled = true
+
+[directory]
+style = "#9596e9 bold"
+
+# [directory]
+# style = "bold blue"
 
 # [time]
 # disabled = true

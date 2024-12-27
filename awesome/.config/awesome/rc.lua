@@ -2,8 +2,6 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
--- local volumn = require("volume")
-
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -52,15 +50,17 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
--- beautiful.useless_gap = 7
+beautiful.useless_gap = 10
 -- beautiful.font = "IosevkaTerm Nerd Font 10"
 
--- -- Custom Widgets
--- local battery_widget = require("dtien.battery")
--- local disk_widget = require("dtien.disk")
+-- Custom Widgets
+local battery_widget = require("dtien.widgets.battery")
+local disk_widget = require("dtien.widgets.disk")
+local mem_widget = require("dtien.widgets.mem")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "gnome-terminal"
+browser = "brave"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -184,7 +184,7 @@ local function set_wallpaper(s)
             wallpaper = wallpaper(s)
         end
 
-        local filename = "~/.config/awesome/wallpaper.png"
+        local filename = os.getenv "HOME" .. "/personal/wallpapers/main.png"
         local f = io.open(filename, "r")
         if f ~= nil then
             gears.wallpaper.maximized(filename, s, true)
@@ -247,6 +247,9 @@ awful.screen.connect_for_each_screen(function(s)
 
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            mem_widget,
+            disk_widget,
+            battery_widget {},
             mytextclock,
             mykeyboardlayout,
             wibox.widget.systray(),
@@ -314,8 +317,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
 
-    awful.key({ modkey,           }, "0", function () awful.spawn('firefox') end,
-              {description = "open a firefox", group = "launcher"}),
+    awful.key({ modkey,           }, "0", function () awful.spawn(browser) end,
+              {description = "open a default browser", group = "launcher"}),
 
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -393,6 +396,10 @@ clientkeys = gears.table.join(
     awful.key({ modkey,           }, "f",
         function (c)
             c.fullscreen = not c.fullscreen
+            -- disable floating when in fullscreen
+            if c.fullscreen then
+                c.floating = false
+            end
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
@@ -651,7 +658,7 @@ client.connect_signal("unfocus", function(c)
 end)
 -- }}}
 
-awful.util.spawn_with_shell("nitrogen --restore")
+-- awful.util.spawn_with_shell("nitrogen --restore")
 awful.util.spawn_with_shell("~/.local/bin/startup")
-awful.util.spawn("firefox", { tag = "2" })
-awful.util.spawn("gnome-terminal", { tag = "3" })
+awful.util.spawn(browser, { tag = "2" })
+awful.util.spawn(terminal, { tag = "3" })

@@ -5,6 +5,7 @@ VIM="nvim"
 export DOTFILES=$HOME/.dotfiles
 export PATH="$GEM_HOME/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
+export PATH="$HOME/zig-linux-x86_64-0.13.0:$PATH"
 
 # export ANDROID_HOME=$HOME/Android/Sdk
 # export PATH=$PATH:$ANDROID_HOME/emulator
@@ -31,40 +32,39 @@ cat1Line() {
 }
 
 draft() {
-    draft_file=$HOME/personal/_messages/draft.txt
+    draft_file=$HOME/personal/draft.txt
     echo "date: $(date)" >> $draft_file
     echo "$@" >> $draft_file
     echo "" >> $draft_file
 }
 
-note() {
-    note_file=$HOME/personal/_notes/note.txt
-    if [ $1 = "list" ] || [ $1 = "l" ] ; then
-        cat $note_file
-    elif [ $1 = "edit" ] || [ $1 = "e" ] || [ $1 = "open" ] || [ $1 = "o" ]; then
-        nvim $note_file
-    else
-        timestamp=$(date +"%Y-%m-%d %H:%M:%S")
-        while [[ $# -gt 0 ]]; do
-            case "$1" in
-                -m|--message)
-                    shift
-                    message="$1"
-                    ;;
-                *)
-                    echo "Invalid argument: $1"
-                    ;;
-            esac
-            shift
-        done
-
-        if [ -z "$message" ]; then
-            echo "Please provide a message using -m or --message."
-        else
-            echo "[$timestamp] > $message" >> $note_file
-            echo "" >> $note_file
-            echo "Note added: $message"
-        fi
-    fi
-}
+# note() {
+#     note_file=$HOME/personal/note.txt
+#     if [ $1 = "list" ] || [ $1 = "l" ] ; then
+#         cat $note_file
+#     elif [ $1 = "edit" ] || [ $1 = "e" ] || [ $1 = "open" ] || [ $1 = "o" ]; then
+#         nvim $note_file
+#     else
+#         timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+#         while [[ $# -gt 0 ]]; do
+#             case "$1" in
+#                 -m|--message)
+#                     shift
+#                     message="$1"
+#                     ;;
+#                 *)
+#                     echo "Invalid argument: $1"
+#                     ;;
+#             esac
+#             shift
+#         done
+#         if [ -z "$message" ]; then
+#             echo "Please provide a message using -m or --message."
+#         else
+#             echo "[$timestamp] > $message" >> $note_file
+#             echo "" >> $note_file
+#             echo "Note added: $message"
+#         fi
+#     fi
+# }
 

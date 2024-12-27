@@ -1,7 +1,7 @@
-local disk_usage_widget = {}
-
 local wibox = require("wibox")
 local gears = require("gears")
+
+local disk_usage_widget = {}
 
 local function get_disk_usage(mount_point)
     local handle = io.popen("df -h " .. mount_point)
@@ -16,12 +16,12 @@ end
 function disk_usage_widget.new(mount_point)
     local widget = wibox.widget {
         widget = wibox.widget.textbox,
-        markup = "Disk Usage: Loading..."
+        markup = "DSK: ..."
     }
 
     local function update_disk_usage()
         local total, free = get_disk_usage(mount_point)
-        widget.markup = string.format(" | Disk Usage: %s / %s | ", total, free)
+        widget.markup = string.format("DSK: %s (%s)", total, free)
     end
 
     local update_interval = 60 -- Update every 60 seconds
@@ -36,4 +36,6 @@ function disk_usage_widget.new(mount_point)
     return widget
 end
 
-return disk_usage_widget
+local widget = disk_usage_widget.new("/")
+
+return widget
