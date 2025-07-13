@@ -128,6 +128,9 @@ alias sd="cd \$(find ~ ~/work ~/work/* ~/personal/ ~/personal/testing/ -mindepth
 # list notes
 alias list-notes="~/.local/bin/list-notes"
 
+# cat draft
+alias catdr="cat ~/personal/draft.txt"
+
 # neovim configs
 # alias vimc="NVIM_APPNAME=nvim-clean-config nvim"
 # alias vimt="NVIM_APPNAME=nvim-testing-config nvim"
