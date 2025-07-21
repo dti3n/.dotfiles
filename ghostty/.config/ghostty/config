@@ -1,27 +1,17 @@
-background = "1e1e1e"
-# background-opacity = 0.95
-# background-blur-radius = 20
+theme = gruvbox
 
-font-size = 14
-# font-family = "Maple Mono NL NF"
-# font-family = "IosevkaTerm Nerd Font"
-# font-feature = -calt
-# font-feature = -liga
-# font-feature = -dlig
+font-size = 16
 
-confirm-close-surface = false
-mouse-hide-while-typing = true
-cursor-invert-fg-bg = true
-# bold-is-bright = true
-
-gtk-single-instance = true
+gtk-titlebar = false
 gtk-tabs-location = bottom
 gtk-wide-tabs = false
-gtk-titlebar = false
+
+confirm-close-surface = false
 window-decoration = false
 window-padding-balance = true
-
-shell-integration-features = cursor,sudo,no-title
+mouse-hide-while-typing = true
+cursor-invert-fg-bg = true
+shell-integration-features = no-cursor,no-sudo,no-title
 
 # === Keybinds ===
 
@@ -31,20 +21,9 @@ keybind = performable:ctrl+c=copy_to_clipboard
 keybind = ctrl+v=paste_from_clipboard
 keybind = ctrl+shift+r=reload_config
 
-keybind = ctrl+shift+h=goto_split:left
-keybind = ctrl+shift+j=goto_split:bottom
-keybind = ctrl+shift+k=goto_split:top
-keybind = ctrl+shift+l=goto_split:right
-# keybind = ctrl+s>h=goto_split:left
-# keybind = ctrl+s>j=goto_split:bottom
-# keybind = ctrl+s>k=goto_split:top
-# keybind = ctrl+s>l=goto_split:right
-
 keybind = ctrl+shift+v=new_split:right
 keybind = ctrl+shift+s=new_split:down
 keybind = ctrl+shift+t=new_tab
-# keybind = ctrl+shift+h=previous_tab
-# keybind = ctrl+shift+l=next_tab
 
 keybind = ctrl+equal=increase_font_size:1
 keybind = ctrl+minus=decrease_font_size:1

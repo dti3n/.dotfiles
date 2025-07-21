@@ -1,23 +1,15 @@
 export XDG_CONFIG_HOME=$HOME/.config
 export NVIM_APPNAME=nvim
-VIM="nvim"
+export GIT_EDITOR=nvim
 
-export DOTFILES=$HOME/.dotfiles
 export PATH="$GEM_HOME/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
-export PATH="$HOME/zig-linux-x86_64-0.13.0:$PATH"
 
 # export ANDROID_HOME=$HOME/Android/Sdk
 # export PATH=$PATH:$ANDROID_HOME/emulator
 # export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-export GIT_EDITOR=$VIM
-
-# this is very nice
 bindkey -s '^f' "~/.local/bin/tmux-sessionizer\n"
-bindkey -s '^s' "cd \$(find ~ ~/work ~/work/* ~/personal/ ~/personal/testing/ -mindepth 1 -maxdepth 1 -type d | fzf)\n"
-
-# functions
 
 catr() {
     tail -n "+$1" $3 | head -n "$(($2 - $1 + 1))"
@@ -37,34 +29,3 @@ draft() {
     echo "$@" >> $draft_file
     echo "" >> $draft_file
 }
-
-# note() {
-#     note_file=$HOME/personal/note.txt
-#     if [ $1 = "list" ] || [ $1 = "l" ] ; then
-#         cat $note_file
-#     elif [ $1 = "edit" ] || [ $1 = "e" ] || [ $1 = "open" ] || [ $1 = "o" ]; then
-#         nvim $note_file
-#     else
-#         timestamp=$(date +"%Y-%m-%d %H:%M:%S")
-#         while [[ $# -gt 0 ]]; do
-#             case "$1" in
-#                 -m|--message)
-#                     shift
-#                     message="$1"
-#                     ;;
-#                 *)
-#                     echo "Invalid argument: $1"
-#                     ;;
-#             esac
-#             shift
-#         done
-#         if [ -z "$message" ]; then
-#             echo "Please provide a message using -m or --message."
-#         else
-#             echo "[$timestamp] > $message" >> $note_file
-#             echo "" >> $note_file
-#             echo "Note added: $message"
-#         fi
-#     fi
-# }
-

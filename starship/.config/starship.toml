@@ -23,8 +23,8 @@ error_symbol = '[‣](bold red)'
 [package]
 disabled = true
 
-[directory]
-style = "#9596e9 bold"
+# [directory]
+# style = "#9596e9 bold"
 
 # [directory]
 # style = "bold blue"

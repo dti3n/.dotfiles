@@ -108,7 +108,14 @@ export NVM_DIR="$HOME/.nvm"
 alias vim='nvim'
 alias vmi='nvim'
 alias ivm='nvim'
+# alias vimc="NVIM_APPNAME=nvim-config-1 nvim"
+# alias vimt="NVIM_APPNAME=nvim-config-2 nvim"
+
 alias so="source ~/.zshrc"
+
+alias power-low="powerprofilesctl set power-saver"
+alias power-default="powerprofilesctl set balanced"
+alias power-high="powerprofilesctl set performance"
 
 # gnome desktop: gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
 alias dk="setxkbmap -option"
@@ -117,33 +124,19 @@ alias ck="setxkbmap -option caps:ctrl_modifier"
 alias CK="setxkbmap -option caps:ctrl_modifier"
 
 # switching keyboard layout
-EN_ibus="xkb:us::eng"
-VN_ibus="Bamboo"
-alias ken='ibus engine $EN_ibus'
-alias kvi='ibus engine $VN_ibus'
+alias ken='ibus engine xkb:us::eng'
+alias kvi='ibus engine Bamboo'
 
 # search directories
 alias sd="cd \$(find ~ ~/work ~/work/* ~/personal/ ~/personal/testing/ -mindepth 1 -maxdepth 1 -type d | fzf)"
 
+# search git branches
+alias sg="~/.local/bin/git-branch-select"
+
 # list notes
-alias list-notes="~/.local/bin/list-notes"
+alias lnotes="~/.local/bin/list-notes"
 
 # cat draft
-alias catdr="cat ~/personal/draft.txt"
-
-# neovim configs
-# alias vimc="NVIM_APPNAME=nvim-clean-config nvim"
-# alias vimt="NVIM_APPNAME=nvim-testing-config nvim"
+alias cat-draft="cat ~/personal/draft.txt"
 
 source $HOME/.zsh_profile
-
-# # . "/home/dtien/.deno/env"
-# eval "$(starship init zsh)"
-
-# pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end

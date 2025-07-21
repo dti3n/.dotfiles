@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+branch=$(git branch --all | grep -v HEAD | sed 's/.* //g' | fzf --height 40% --ansi --preview 'git log --oneline --graph --color=always {}')
+if [[ -n "$branch" ]]; then
+    git checkout "$(echo "$branch" | sed 's#^remotes/origin/##')"
+fi
