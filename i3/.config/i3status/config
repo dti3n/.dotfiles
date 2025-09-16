@@ -5,6 +5,7 @@ general {
 
 order += "cpu_usage"
 order += "cpu_temperature 0"
+order += "memory"
 order += "disk /"
 order += "volume master"
 order += "battery 1"
@@ -16,11 +17,15 @@ cpu_usage {
 }
 
 cpu_temperature 0 {
-    format = " %degrees°C "
+    format = " TEM %degrees°C "
+}
+
+memory {
+    format = " MEM %used (%total) "
 }
 
 disk "/" {
-    format = " DISK %free (%avail) "
+    format = " DSK %free (%avail) "
 }
 
 volume master {

@@ -108,6 +108,7 @@ export NVM_DIR="$HOME/.nvm"
 alias vim='nvim'
 alias vmi='nvim'
 alias ivm='nvim'
+alias nvimdiff='nvim -d'
 # alias vimc="NVIM_APPNAME=nvim-config-1 nvim"
 # alias vimt="NVIM_APPNAME=nvim-config-2 nvim"
 
@@ -128,15 +129,6 @@ alias ken='ibus engine xkb:us::eng'
 alias kvi='ibus engine Bamboo'
 
 # search directories
-alias sd="cd \$(find ~ ~/work ~/work/* ~/personal/ ~/personal/testing/ -mindepth 1 -maxdepth 1 -type d | fzf)"
-
-# search git branches
-alias sg="~/.local/bin/git-branch-select"
-
-# list notes
-alias lnotes="~/.local/bin/list-notes"
-
-# cat draft
-alias cat-draft="cat ~/personal/draft.txt"
+alias sd="cd \$(find ~ ~/work ~/work/* ~/personal/ ~/personal/* -mindepth 1 -maxdepth 1 -type d | fzf)"
 
 source $HOME/.zsh_profile
