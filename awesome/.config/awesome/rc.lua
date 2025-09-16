@@ -60,7 +60,7 @@ local mem_widget = require("dtien.widgets.mem")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "gnome-terminal"
-browser = "brave"
+browser = "firefox"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
