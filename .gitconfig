@@ -1,0 +1,4 @@
+[init]
+	defaultBranch = main
+[diff]
+	tool = nvimdiff # alias to nvim -d
