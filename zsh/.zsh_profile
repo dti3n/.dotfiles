@@ -4,6 +4,7 @@ export GIT_EDITOR=nvim
 
 export PATH="$GEM_HOME/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
+export PATH=/home/dtien/.opencode/bin:$PATH
 
 # export ANDROID_HOME=$HOME/Android/Sdk
 # export PATH=$PATH:$ANDROID_HOME/emulator
@@ -21,11 +22,4 @@ rcatr() {
 
 cat1Line() {
     cat $1 | tr -d "\n"
-}
-
-draft() {
-    draft_file=$HOME/personal/draft.txt
-    echo "date: $(date)" >> $draft_file
-    echo "$@" >> $draft_file
-    echo "" >> $draft_file
 }
