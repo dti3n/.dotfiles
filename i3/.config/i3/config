@@ -60,7 +60,7 @@ floating_modifier $mod
 bindsym $mod+Return exec ghostty
 
 # start browser
-bindsym $mod+0 exec brave
+bindsym $mod+0 exec firefox
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -233,4 +233,4 @@ bindsym $mod+Shift+period exec systemctl suspend
 
 exec --no-startup-id "startup"
 exec --no-startup-id sleep 1 && i3-msg 'workspace 3; exec ghostty'
-exec --no-startup-id sleep 2 && i3-msg 'workspace 2; exec brave'
+exec --no-startup-id sleep 2 && i3-msg 'workspace 2; exec firefox'
