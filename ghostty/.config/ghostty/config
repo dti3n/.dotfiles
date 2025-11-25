@@ -1,6 +1,7 @@
 theme = gruvbox
 
-font-size = 16
+font-size = 14
+font-family = CaskaydiaCove Nerd Font
 
 gtk-titlebar = false
 gtk-tabs-location = bottom
