@@ -1,6 +1,7 @@
 theme = gruvbox
 
 font-size = 16
+# font-family = IosevkaTerm Nerd Font
 
 gtk-titlebar = false
 gtk-tabs-location = bottom

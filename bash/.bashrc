@@ -130,7 +130,7 @@ export GIT_EDITOR=nvim
 
 export PATH="$GEM_HOME/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
-export PATH=/home/dtien/.opencode/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH
 
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -144,3 +144,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 bind -x '"\C-f": ~/.local/bin/tmux-sessionizer'
+
+eval "$(starship init bash)"
