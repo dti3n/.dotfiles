@@ -1,6 +1,6 @@
-theme = gruvbox
+background = 111111
 
-font-size = 14
+font-size = 16
 font-family = CaskaydiaCove Nerd Font
 
 gtk-titlebar = false

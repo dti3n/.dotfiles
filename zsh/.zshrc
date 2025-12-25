@@ -105,6 +105,8 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
 alias vim='nvim'
 alias vmi='nvim'
 alias ivm='nvim'
@@ -132,3 +134,5 @@ alias kvi='ibus engine Bamboo'
 alias sd="cd \$(find ~ ~/work ~/work/* ~/personal/ ~/personal/* -mindepth 1 -maxdepth 1 -type d | fzf)"
 
 source $HOME/.zsh_profile
+
+cat ~/personal/_notes/2026/checklists/index.md
