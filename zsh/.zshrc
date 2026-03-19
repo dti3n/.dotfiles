@@ -133,4 +133,14 @@ alias kvi='ibus engine Bamboo'
 # search directories
 alias sd="cd \$(find ~ ~/work ~/work/* ~/personal/ ~/personal/* -mindepth 1 -maxdepth 1 -type d | fzf)"
 
+CHECKLIST_INDEX=~/personal/_notes/2026/checklists/index.md
+alias checklist="cat $CHECKLIST_INDEX"
+alias edit-checklist="nvim $CHECKLIST_INDEX"
+
 source $HOME/.zsh_profile
+
+setopt ignoreeof # prevent exiting when press ctrl+d
+
+cat $CHECKLIST_INDEX
+
+# eval "$(starship init zsh)"
