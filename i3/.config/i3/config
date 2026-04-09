@@ -211,6 +211,9 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Ctrl+l workspace next
 bindsym $mod+Ctrl+h workspace prev
 
+# Toggle sticky float (screen resolution 1920 x 1080)
+bindsym $mod+Shift+F floating enable, resize set 250 450, move position 1650 20, sticky enable
+
 # Screenshots
 bindsym $mod+Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date).png"
 
@@ -229,8 +232,8 @@ bindsym $mod+Shift+period exec systemctl suspend
 # # picom
 # exec --no-startup-id picom -b
 
-# # wallpaper
 # exec --no-startup-id nitrogen --restore
+# # wallpaper
 
 exec --no-startup-id "startup"
 exec --no-startup-id sleep 1 && i3-msg 'workspace 3; exec ghostty'

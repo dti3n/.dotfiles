@@ -110,6 +110,7 @@ export NVM_DIR="$HOME/.nvm"
 alias vim='nvim'
 alias vmi='nvim'
 alias ivm='nvim'
+alias imv='nvim'
 alias nvimdiff='nvim -d'
 # alias vimc="NVIM_APPNAME=nvim-config-1 nvim"
 # alias vimt="NVIM_APPNAME=nvim-config-2 nvim"

@@ -1,8 +1,24 @@
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [core]
     editor = nvim
 [push]
     default = current
+
+[difftool "nvim_difftool"]
+    cmd = nvim \
+        -c 'packadd nvim.difftool' \
+        -d "$LOCAL" "$REMOTE"
 [diff]
-	tool = nvimdiff # alias to nvim -d
+    tool = nvim_difftool
+
+[mergetool "nvim_difftool"]
+    cmd = nvim \
+        -c 'packadd nvim.difftool' \
+        -c 'wincmd J' \
+        -d "$MERGED" "$LOCAL" "$BASE" "$REMOTE"
+[merge]
+    tool = nvim_difftool
+[mergetool]
+    prompt = false
+    keepBackup = false
