@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=100000
+HISTFILESIZE=200000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -65,7 +65,10 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1='[\W]\[\033[00m\]$(__git_ps1 "\[\033[33m\]:%s\[\033[00m\]") ‣ '
+    CYAN='\[\e[1;36m\]'
+    RED='\[\e[1;31m\]'
+    RESET='\[\e[0m\]'
+    PS1="\n${CYAN}\W${RESET}\$(__git_ps1 \"${RED} %s${RESET}\")\n‣ ${RESET}"
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -124,16 +127,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export XDG_CONFIG_HOME=$HOME/.config
-export NVIM_APPNAME=nvim
 export GIT_EDITOR=nvim
 
 export PATH="$GEM_HOME/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$HOME/.opencode/bin:$PATH
-
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -145,4 +143,4 @@ export NVM_DIR="$HOME/.nvm"
 
 bind -x '"\C-f": ~/.local/bin/tmux-sessionizer'
 
-eval "$(starship init bash)"
+set -o ignoreeof

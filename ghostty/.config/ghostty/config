@@ -10,6 +10,8 @@ window-decoration = false
 confirm-close-surface = false
 shell-integration-features = no-cursor,no-sudo,no-title
 
+cursor-invert-fg-bg = true
+
 # === Keybinds ===
 
 keybind = clear
@@ -18,7 +20,7 @@ keybind = performable:ctrl+c=copy_to_clipboard
 keybind = ctrl+v=paste_from_clipboard
 keybind = ctrl+shift+r=reload_config
 
-keybind = ctrl+shift+v=new_split:right
+keybind = ctrl+shift+h=new_split:right
 keybind = ctrl+shift+s=new_split:down
 keybind = ctrl+shift+t=new_tab
 
