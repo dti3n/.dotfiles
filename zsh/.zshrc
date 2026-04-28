@@ -142,6 +142,6 @@ source $HOME/.zsh_profile
 
 setopt ignoreeof # prevent exiting when press ctrl+d
 
-cat $CHECKLIST_INDEX
+# cat $CHECKLIST_INDEX
 
 # eval "$(starship init zsh)"
